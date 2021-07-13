@@ -1,0 +1,2 @@
+com.general.common.adapter.check.AssertEnumParamCheckProcessor
+com.general.common.adapter.check.NotNullParamCheckProcessor
