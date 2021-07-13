@@ -71,7 +71,7 @@ public class Result<T> implements Serializable {
      */
     public static <E> Result<E> failed(String errorCode, String errorMsg) {
         Result<E> resp = new Result<>();
-        resp.setSuccess(true);
+        resp.setSuccess(false);
         resp.setErrorCode(errorCode);
         resp.setErrorMsg(errorMsg);
         return resp;
