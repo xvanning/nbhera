@@ -17,6 +17,10 @@ public class FirstOf<T> extends Reducer<T, T> {
     @Nonnull
     private Predicate<T> predicate;
 
+    public FirstOf() {
+
+    }
+
     /**
      * 构造函数
      *
@@ -33,7 +37,7 @@ public class FirstOf<T> extends Reducer<T, T> {
             return false;
         }
         for (T element : elements) {
-            if (predicate.test(element)) {
+            if (null == predicate || predicate.test(element)) {
                 setResult(element);
                 setBreak();
                 return true;

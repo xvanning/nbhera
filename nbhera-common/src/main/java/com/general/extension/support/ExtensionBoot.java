@@ -54,6 +54,6 @@ public class ExtensionBoot {
 
         // 注册扩展点
         log.info("|EXT_BOOT| register extension point start!");
-        this.extensionClassSet.getExtensionPointClasses().forEach(ExtensionRegistryCenter::register);
+        this.extensionClassSet.getExtensionClasses().forEach(ExtensionRegistryCenter::register);
     }
 }

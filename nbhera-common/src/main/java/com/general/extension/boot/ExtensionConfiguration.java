@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  * date: 2021/5/30 21:28
  * desc: 扩展点 SpringBoot 启动器
  */
-@Target({ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(ExtensionImportBeanDefinitionRegistrar.class)

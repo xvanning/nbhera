@@ -61,16 +61,16 @@ public abstract class ExtensionExecutor<E extends ExtensionPoints<E, ReduceTarge
      * @param scenario             场景
      * @param reduceTarget         决策对象
      * @param extensionClass       扩展点接口类
-     * @param extensionDefinitions 扩展点实现
+     * @param extensionPoints 扩展点实现
      */
-    protected ExtensionExecutor(String scenario, ReduceTarget reduceTarget, Class<E> extensionClass, List<ExtensionDefinition<E, ReduceTarget>> extensionDefinitions) {
+    protected ExtensionExecutor(String scenario, ReduceTarget reduceTarget, Class<E> extensionClass, List<ExtensionDefinition<E, ReduceTarget>> extensionPoints) {
         if (CollectionUtils.isEmpty(extensionPoints)) {
             throw new SystemException(SystemCode.EXTENSION, "决策后扩展点实现为空").addExtension("type", getType()).addExtension("extensionClass", extensionClass).addExtension("reduceTarget", reduceTarget);
         }
         this.scenario = scenario;
         this.reduceTarget = reduceTarget;
         this.extensionClass = extensionClass;
-        this.extensionPoints = extensionDefinitions;
+        this.extensionPoints = extensionPoints;
     }
 
     /**

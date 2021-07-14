@@ -34,7 +34,7 @@ public class AnyMatch<T> extends Reducer<T, Boolean> {
             return false;
         }
         for (T element : elements) {
-            if (predicate.test(element)) {
+            if (null == predicate || predicate.test(element)) {
                 setResult(true);
                 setBreak();
                 return true;

@@ -52,8 +52,7 @@ public class Reducers {
      * @return 决策器
      */
     public static <T> Reducer<T, T> firstOf() {
-        return null;
-
+        return new FirstOf<>();
     }
 
     /**
