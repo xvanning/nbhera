@@ -10,13 +10,6 @@ import com.general.extension.enums.TemplateType;
  */
 public class TemplateDemo {
 
-    @TemplateConfig(subscribe = {NO_PAY, NEED_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})
-    public static final String SCHOOL_BIZ = "SCHOOL_BIZ";
-
-    @TemplateConfig(subscribe = {NO_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})
-    public static final String COMMUNITY_BIZ = "COMMUNITY_BIZ";
-
-
     //    @TemplateConfig(type = TemplateType.HORIZONTAL)
     public static final String NO_PAY = "NO_PAY";
     //    @TemplateConfig(type = TemplateType.HORIZONTAL)
@@ -25,5 +18,17 @@ public class TemplateDemo {
     public static final String CAR_TRANSPORT = "CAR_TRANSPORT";
     //    @TemplateConfig(type = TemplateType.HORIZONTAL)
     public static final String COURIER_TRANSPORT = "COURIER_TRANSPORT";
+
+
+
+
+
+
+    @TemplateConfig(subscribe = {NO_PAY, NEED_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})
+    public static final String SCHOOL_BIZ = "SCHOOL_BIZ";
+
+    @TemplateConfig(subscribe = {NO_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})
+    public static final String COMMUNITY_BIZ = "COMMUNITY_BIZ";
+
 
 }
