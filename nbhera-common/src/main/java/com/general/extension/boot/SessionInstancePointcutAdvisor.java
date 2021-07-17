@@ -23,7 +23,7 @@ public class SessionInstancePointcutAdvisor extends StaticMethodMatcherPointcutA
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        Boolean match = AnnotationUtils.findAnnotation(method, ExtensionSession.class) != null;
+        boolean match = AnnotationUtils.findAnnotation(method, ExtensionSession.class) != null;
         // 在启动的时候就生成对应的方法注解缓存
         if (match) {
             SessionServiceMethodInterceptor.ANNOTATION_MAP_CACHE.computeIfAbsent(method, value -> AnnotationMethod.of(method, SessionServiceMethodInterceptor.CHECK_ANNOTATION));

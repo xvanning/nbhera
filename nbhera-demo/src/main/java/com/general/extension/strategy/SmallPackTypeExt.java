@@ -1,4 +1,4 @@
-package com.general.extension.pack;
+package com.general.extension.strategy;
 
 import com.general.extension.annotation.Extension;
 
