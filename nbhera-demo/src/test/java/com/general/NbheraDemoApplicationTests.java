@@ -32,4 +32,13 @@ class NbheraDemoApplicationTests {
         System.out.println(currentBiz2);
     }
 
+    @Test
+    void testTemplate() {
+        String currentBiz1 = verticalBizDemo.getCurrentBiz(1);
+        System.out.println(currentBiz1);
+        System.out.println("=========== 我是分割线 ==========");
+        String currentBiz2 = verticalBizDemo.getCurrentBiz(2);
+        System.out.println(currentBiz2);
+    }
+
 }
