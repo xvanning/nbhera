@@ -1,6 +1,7 @@
 package com.general.extension.biz.horizontal.paytype;
 
 import com.general.extension.annotation.Extension;
+import com.general.extension.template.CategoryTemplate;
 import com.general.extension.template.TemplateDemo;
 
 import java.util.Objects;
@@ -10,7 +11,7 @@ import java.util.Objects;
  * date: 2021/7/17 23:35
  * desc: 需要支付水平模板
  */
-@Extension(TemplateDemo.NEED_PAY)
+@Extension(CategoryTemplate.NEED_PAY)
 public class NeedPayTypeNameExt implements PayTypeNameExt {
     @Override
     public String getPayTypeName() {
