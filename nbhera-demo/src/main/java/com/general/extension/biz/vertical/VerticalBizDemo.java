@@ -68,6 +68,8 @@ public class VerticalBizDemo {
      * 垂直业务例子
      * 【垂直业务 + 订阅模板】 的例子
      * 根据 【垂直业务】 订阅了 车和人的水平模板，然后根据reduce，走不同的垂直业务子类实现
+     * 这里只是垂直业务进行了订阅，实际中没有使用到 businessType
+     * 只用到了 transportType
      * {@link com.general.extension.template.TemplateDemo}
      *
      * @param businessType 业务类型
@@ -75,6 +77,19 @@ public class VerticalBizDemo {
      */
     @ExtensionSession
     public String getTransportTypeWithoutStrategy(@BizParam("businessType") Integer businessType, Integer transportType) {
+        return transportNameExt.reduce(transportType).getTransportName();
+    }
+
+
+    /**
+     * 垂直业务例子
+     * 【垂直业务 + 订阅模板】 的例子，双层复杂实现 TODO
+     *
+     * @param businessType 业务类型
+     * @return 业务类型描述
+     */
+    @ExtensionSession
+    public String get(@BizParam("businessType") Integer businessType, Integer transportType) {
         return transportNameExt.reduce(transportType).getTransportName();
     }
 }

@@ -17,7 +17,7 @@ import java.util.Objects;
 public class CarTemplate extends HorizontalTemplate {
     @Override
     public boolean checkSupport() {
-        return false;
+        return true;
     }
 
     @Override

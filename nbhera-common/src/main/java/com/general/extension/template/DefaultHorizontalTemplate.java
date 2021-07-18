@@ -18,7 +18,7 @@ public class DefaultHorizontalTemplate extends HorizontalTemplate {
 
     @Override
     public boolean checkSupport() {
-        return false;
+        return true;
     }
 
     @Override

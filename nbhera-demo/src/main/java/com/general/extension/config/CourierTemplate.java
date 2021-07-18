@@ -3,7 +3,6 @@ package com.general.extension.config;
 import com.general.extension.annotation.TemplateConfig;
 import com.general.extension.template.CategoryTemplate;
 import com.general.extension.template.HorizontalTemplate;
-import com.general.extension.template.TemplateDemo;
 
 import java.util.Objects;
 
@@ -17,7 +16,7 @@ import java.util.Objects;
 public class CourierTemplate extends HorizontalTemplate {
     @Override
     public boolean checkSupport() {
-        return false;
+        return true;
     }
 
     @Override

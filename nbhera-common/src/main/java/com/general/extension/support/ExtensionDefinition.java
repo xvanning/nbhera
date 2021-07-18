@@ -99,7 +99,7 @@ public class ExtensionDefinition<E extends ExtensionPoints<E, R>, R> implements 
      * @return 是否支持
      */
     public Boolean support(R reduceTarget, String bizCode) {
-        return extensionPoint.support(reduceTarget) && (getType() == TemplateType.FREEDOM || template.isEnable(reduceTarget, bizCode));
+        return extensionPoint.support(reduceTarget) && (this.getType() == TemplateType.FREEDOM || template.isEnable(reduceTarget, bizCode));
     }
 
     /**
