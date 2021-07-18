@@ -40,7 +40,7 @@ public class BizCodeParserClient {
         }
         for (BizCodeParser parser : parserMap.values()) {
             String bizCode = parser.parser(bizId);
-            if (StringUtils.isBlank(bizCode)) {
+            if (StringUtils.isNotBlank(bizCode)) {
                 return bizCode;
             }
         }

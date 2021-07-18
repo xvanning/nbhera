@@ -15,6 +15,7 @@ import java.util.Objects;
  */
 @Component
 public class VerticalBizParser implements BizCodeParser {
+
     @Override
     public String parser(Map<String, Object> bizParam) {
         Integer businessType = TypeUtils.castToInt(bizParam.get("businessType"));
