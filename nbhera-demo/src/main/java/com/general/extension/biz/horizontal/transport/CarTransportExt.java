@@ -2,7 +2,6 @@ package com.general.extension.biz.horizontal.transport;
 
 import com.general.extension.annotation.Extension;
 import com.general.extension.template.CategoryTemplate;
-import com.general.extension.template.TemplateDemo;
 
 /**
  * @author xvanning

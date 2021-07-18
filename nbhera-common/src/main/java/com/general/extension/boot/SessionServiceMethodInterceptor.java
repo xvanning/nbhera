@@ -73,7 +73,7 @@ public class SessionServiceMethodInterceptor implements MethodInterceptor {
         String scenario = resolveScenario(annotationMethod, invocation.getArguments());
         // 如果无法获取业务身份
         if (StringUtils.isBlank(bizCode)) {
-            throw new SystemException(SystemCode.EXTENSION, "can not parser bizCode" + Arrays.toString(invocation.getArguments()));
+            throw new SystemException(SystemCode.EXTENSION, "can not parser bizCode, arguments is " + Arrays.toString(invocation.getArguments()));
         }
 
         // 创建一次调用session

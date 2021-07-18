@@ -6,10 +6,11 @@ import com.general.extension.enums.TemplateType;
 /**
  * @author xvanning
  * date: 2021/7/17 23:57
- * desc:
+ * desc: 注册简单声明的模板类
  */
 public class CategoryTemplate {
 
+    // 显示指定为 水平模板
     @TemplateConfig(type = TemplateType.HORIZONTAL)
     public static final String NO_PAY = "NO_PAY";
     @TemplateConfig(type = TemplateType.HORIZONTAL)

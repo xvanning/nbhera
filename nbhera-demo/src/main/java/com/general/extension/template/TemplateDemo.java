@@ -12,7 +12,12 @@ import static com.general.extension.template.CategoryTemplate.*;
  */
 public class TemplateDemo {
 
-    @TemplateConfig(subscribe = {NO_PAY, NEED_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})
+    /**
+     * 订阅的 code 需要显示指定为 水平模板
+     * 或者 有统一的类进行继承，表明为 水平模板{@link com.general.extension.config.CarTemplate}
+     * 接受订阅的类需要是 垂直模板
+     */
+    @TemplateConfig(subscribe = {NO_PAY, NEED_PAY, CAR_TRANSPORT, COURIER_TRANSPORT}, type = TemplateType.VERTICAL)
     public static final String SCHOOL_BIZ = "SCHOOL_BIZ";
 
     @TemplateConfig(subscribe = {NO_PAY, CAR_TRANSPORT, COURIER_TRANSPORT})

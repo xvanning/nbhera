@@ -1,4 +1,4 @@
-package com.general.extension.biz.vertical;
+package com.general.extension.biz.vertical.simple;
 
 import com.general.nbhera.extension.ExtensionPoints;
 

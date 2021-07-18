@@ -1,4 +1,4 @@
-package com.general.extension.biz;
+package com.general.extension.config;
 
 import com.alibaba.fastjson.util.TypeUtils;
 import com.general.extension.identity.BizCodeParser;
@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * @author xvanning
  * date: 2021/7/17 17:09
- * desc:
+ * desc: 业务标识解析器
  */
 @Component
 public class VerticalBizParser implements BizCodeParser {
@@ -24,6 +24,6 @@ public class VerticalBizParser implements BizCodeParser {
         } else if (Objects.equals(businessType, 2)) {
             return TemplateDemo.COMMUNITY_BIZ;
         }
-        return TemplateDemo.COMMUNITY_BIZ;
+        return null;
     }
 }

@@ -145,7 +145,7 @@ public abstract class ExtensionExecutor<E extends ExtensionPoints<E, ReduceTarge
      */
     public final <R, T> R execute(ExtensionCallBack<E, T> callBack, Reducer<T, R> reducer) {
         AssertUtils.isNotNull(callBack, SystemCode.EXTENSION, "need set callBack");
-        StringBuilder stringBuilder = new StringBuilder("|EXT_EXE|").append(getType()).append(SEPARATOR).append(extensionClass.getSimpleName()).append(reducer.getClass().getSimpleName()).append(SEPARATOR);
+        StringBuilder stringBuilder = new StringBuilder("|EXT_EXE|").append(getType()).append(SEPARATOR).append(extensionClass.getSimpleName()).append(SEPARATOR).append(reducer.getClass().getSimpleName()).append(SEPARATOR);
         StringBuilder builder = builder(stringBuilder);
         List<T> runResults = Lists.newArrayList();
         for (ExtensionDefinition<E, ReduceTarget> extensionPoint : this.extensionPoints) {

@@ -2,7 +2,6 @@ package com.general.extension.session;
 
 import com.general.common.exception.SystemException;
 import com.general.common.util.SequenceUtils;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,7 +13,6 @@ import java.util.Map;
  * desc: 业务身份session
  */
 @Data
-@AllArgsConstructor
 public class BizSession {
     protected static final ThreadLocal<SessionCacheData> SESSION_THREAD_LOCAL = ThreadLocal.withInitial(SessionCacheData::new);
 
@@ -24,19 +22,34 @@ public class BizSession {
     private String sessionId;
 
     /**
-     * 场景
-     */
-    private String scenario;
-
-    /**
      * 业务code
      */
     private String bizCode;
 
     /**
+     * 场景
+     */
+    private String scenario;
+
+    /**
      * 业务身份参数
      */
     private Map<String, Object> bizData;
+
+    /**
+     * 构造函数
+     *
+     * @param sessionId sessionId
+     * @param bizCode   bizCode
+     * @param scenario  scenario
+     * @param bizData   bizData
+     */
+    public BizSession(String sessionId, String bizCode, String scenario, Map<String, Object> bizData) {
+        this.sessionId = sessionId;
+        this.bizCode = bizCode;
+        this.scenario = scenario;
+        this.bizData = bizData;
+    }
 
     /**
      * 创建session
