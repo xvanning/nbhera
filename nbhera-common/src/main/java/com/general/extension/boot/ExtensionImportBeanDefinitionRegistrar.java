@@ -39,7 +39,7 @@ public class ExtensionImportBeanDefinitionRegistrar implements ImportBeanDefinit
         log.info(extensionClassSet.toString());
 
         // 设置spring上下文类
-        beanDefinitionRegistry.registerBeanDefinition(StringUtils.uncapitalize(SpringApplicationContextHolder.class.getSimpleName()), buildGeneraBeanDefinition(SpringApplicationContextHolder.class));
+        beanDefinitionRegistry.registerBeanDefinition(StringUtils.uncapitalize(SpringApplicationContextHolder.class.getSimpleName()), buildGeneralBeanDefinition(SpringApplicationContextHolder.class));
 
         // session切面注册
         prepareSessionScopeCreateAspect(beanDefinitionRegistry);
@@ -68,7 +68,7 @@ public class ExtensionImportBeanDefinitionRegistrar implements ImportBeanDefinit
      * @param extensionClassSet 扩展点扫描类
      */
     private void prepareExtensionBoot(BeanDefinitionRegistry registry, String[] scanPackages, ExtensionClassSet extensionClassSet) {
-        log.info("prepare SessionInstancePointcutAdvisor.class");
+        log.info("prepare ExtensionBoot.class");
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(ExtensionBoot.class);
         beanDefinitionBuilder.setScope(BeanDefinition.SCOPE_SINGLETON);
         beanDefinitionBuilder.setLazyInit(false);
@@ -85,7 +85,7 @@ public class ExtensionImportBeanDefinitionRegistrar implements ImportBeanDefinit
      */
     private void prepareSessionScopeCreateAspect(BeanDefinitionRegistry registry) {
         log.info("prepare SessionInstancePointcutAdvisor.class");
-        registry.registerBeanDefinition(SESSION_CREATE_AOP, buildGeneraBeanDefinition(SessionInstancePointcutAdvisor.class));
+        registry.registerBeanDefinition(SESSION_CREATE_AOP, buildGeneralBeanDefinition(SessionInstancePointcutAdvisor.class));
     }
 
     /**
@@ -94,7 +94,7 @@ public class ExtensionImportBeanDefinitionRegistrar implements ImportBeanDefinit
      * @param clazz 目标类
      * @return bean定义
      */
-    private BeanDefinition buildGeneraBeanDefinition(Class<?> clazz) {
+    private BeanDefinition buildGeneralBeanDefinition(Class<?> clazz) {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(clazz);
         beanDefinitionBuilder.setScope(BeanDefinition.SCOPE_SINGLETON);
         beanDefinitionBuilder.setLazyInit(false);
