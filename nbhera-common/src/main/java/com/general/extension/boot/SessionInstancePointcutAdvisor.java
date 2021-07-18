@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * @author xvanning
  * date: 2021/5/30 21:32
- * desc: 实现类切面，将带@ExtensnionSession的注解进行扫描解析
+ * desc: 实现类切面，将带 @ExtensionSession 的注解进行扫描解析
  */
 public class SessionInstancePointcutAdvisor extends StaticMethodMatcherPointcutAdvisor {
 

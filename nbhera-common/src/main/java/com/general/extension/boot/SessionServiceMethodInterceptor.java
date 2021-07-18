@@ -29,7 +29,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * @author xvanning
  * date: 2021/5/30 21:32
- * desc: @ExtensnionSession 注解的切面实现类
+ * desc: @ExtensionSession 注解的切面实现类
  */
 @Slf4j
 public class SessionServiceMethodInterceptor implements MethodInterceptor {
