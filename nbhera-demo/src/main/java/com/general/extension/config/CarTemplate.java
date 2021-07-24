@@ -1,5 +1,6 @@
 package com.general.extension.config;
 
+import com.general.enums.TransTypeEnums;
 import com.general.extension.annotation.TemplateConfig;
 import com.general.extension.template.CategoryTemplate;
 import com.general.extension.template.HorizontalTemplate;
@@ -22,6 +23,6 @@ public class CarTemplate extends HorizontalTemplate {
 
     @Override
     public boolean support(Object reduceObject, String bizCode) {
-        return Objects.equals(2, reduceObject);
+        return Objects.equals(TransTypeEnums.CAR.getCode(), reduceObject);
     }
 }

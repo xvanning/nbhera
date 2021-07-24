@@ -1,5 +1,6 @@
 package com.general.extension.config;
 
+import com.general.enums.TransTypeEnums;
 import com.general.extension.annotation.TemplateConfig;
 import com.general.extension.template.CategoryTemplate;
 import com.general.extension.template.HorizontalTemplate;
@@ -21,6 +22,6 @@ public class CourierTemplate extends HorizontalTemplate {
 
     @Override
     public boolean support(Object reduceObject, String bizCode) {
-        return Objects.equals(1, reduceObject);
+        return Objects.equals(TransTypeEnums.COURIER.getCode(), reduceObject);
     }
 }

@@ -1,5 +1,6 @@
 package com.general.extension.strategy.demo1;
 
+import com.general.enums.PackTypeEnums;
 import com.general.extension.annotation.Extension;
 
 /**
@@ -16,6 +17,6 @@ public class SmallPackTypeExt implements PackTypeExt {
 
     @Override
     public boolean support(Integer type) {
-        return type == 2;
+        return type == PackTypeEnums.SMALL.getCode();
     }
 }

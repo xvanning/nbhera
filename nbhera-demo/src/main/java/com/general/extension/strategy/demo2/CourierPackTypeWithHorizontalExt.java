@@ -1,5 +1,6 @@
 package com.general.extension.strategy.demo2;
 
+import com.general.enums.TransTypeEnums;
 import com.general.extension.annotation.Extension;
 import com.general.extension.template.CategoryTemplate;
 
@@ -17,6 +18,6 @@ public class CourierPackTypeWithHorizontalExt implements PackTypeWithHorizontalE
 
     @Override
     public boolean support(Integer type) {
-        return type == 2;
+        return type == TransTypeEnums.COURIER.getCode();
     }
 }

@@ -43,11 +43,11 @@ public class VerticalBizDemo {
      * 根据 水平模板 的类型，走不同的子类实现
      * 这边的 @Extension 仅仅与 水平模板 code 绑定
      *
-     * @param packType 包裹类型
+     * @param transportType 运力类型
      * @return 包裹类型描述
      */
-    public String getPackTypeByStrategyWithHorizontalExt(Integer packType) {
-        return packTypeWithHorizontalExt.reduce(packType).getPackType();
+    public String getPackTypeByStrategyWithHorizontalExt(Integer transportType) {
+        return packTypeWithHorizontalExt.reduce(transportType).getPackType();
     }
 
     /**
