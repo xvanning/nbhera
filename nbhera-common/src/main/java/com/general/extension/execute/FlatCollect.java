@@ -43,7 +43,7 @@ public class FlatCollect<T> extends Reducer<List<T>, List<T>> {
             return Collections.emptyList();
         }
         List<T> results = Lists.newArrayList();
-        elements.stream().filter(element -> CollectionUtils.isNotEmpty(element) && predicate.test(element)).forEach(element -> results.addAll(element));
+        elements.stream().filter(element -> CollectionUtils.isNotEmpty(element) && predicate.test(element)).forEach(results::addAll);
         return results;
     }
 }

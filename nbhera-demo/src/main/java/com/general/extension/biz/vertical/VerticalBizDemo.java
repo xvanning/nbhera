@@ -4,12 +4,15 @@ import com.general.extension.annotation.ExtensionSession;
 import com.general.extension.biz.horizontal.paytype.PayTypeNameExt;
 import com.general.extension.biz.horizontal.transport.TransportNameExt;
 import com.general.extension.biz.vertical.simple.PostProcessorExt;
+import com.general.extension.scenario.checkrules.CheckRulesExt;
 import com.general.extension.strategy.demo1.PackTypeExt;
 import com.general.extension.strategy.demo2.PackTypeWithHorizontalExt;
 import com.general.nbhera.extension.aonnotation.BizParam;
+import com.general.nbhera.extension.aonnotation.Scenario;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author xvanning
@@ -28,6 +31,8 @@ public class VerticalBizDemo {
     TransportNameExt transportNameExt;
     @Resource
     PayTypeNameExt payTypeNameExt;
+    @Resource
+    CheckRulesExt checkRulesExt;
 
     /**
      * 策略模式例子，需要接口加 @Strategy
@@ -96,5 +101,30 @@ public class VerticalBizDemo {
     @ExtensionSession
     public String getPayTypeWithBusinessType(@BizParam("businessType") Integer businessType, Integer payType) {
         return payTypeNameExt.reduce(payType).getPayTypeNameWithBusiness();
+    }
+
+    /**
+     * 垂直业务的场景例子
+     *
+     * @param businessType 业务类型
+     * @param scenario     场景值
+     * @return 业务类型描述
+     */
+    @ExtensionSession
+    public List<String> getScenarioVertical(@BizParam("businessType") Integer businessType, @Scenario String scenario) {
+        return checkRulesExt.getCheckRulesList();
+    }
+
+    /**
+     * 垂直业务的场景例子
+     *
+     * @param businessType 业务类型
+     * @param transType    运力类型
+     * @param scenario     场景值
+     * @return 业务类型描述
+     */
+    @ExtensionSession
+    public String getScenarioHorizontal(@BizParam("businessType") Integer businessType, Integer transType, @Scenario Integer scenario) {
+        return "";
     }
 }

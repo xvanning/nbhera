@@ -54,6 +54,6 @@ public class AllMatch<T> extends Reducer<T, Boolean> {
 
     @Override
     public Boolean reduce(Collection<T> elements) {
-        return hasBreak() ? getResult() : false;
+        return hasBreak() ? getResult() : true;
     }
 }

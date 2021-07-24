@@ -239,7 +239,7 @@ public class Reducers {
      * @param <R>           决策对象泛型
      * @return 决策出的扩展点实现
      */
-    public static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCode(List<String> templateCodes, Class<E> targetClass) {
+    public static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCodes(List<String> templateCodes, Class<E> targetClass) {
         return reduceByCodes(templateCodes, null, null, targetClass);
     }
 
@@ -253,7 +253,7 @@ public class Reducers {
      * @param <R>           决策对象泛型
      * @return 决策出的扩展点实现
      */
-    public static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCode(List<String> templateCodes, R reduceTarget, Class<E> targetClass) {
+    public static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCodes(List<String> templateCodes, R reduceTarget, Class<E> targetClass) {
         return reduceByCodes(templateCodes, null, reduceTarget, targetClass);
     }
 
@@ -268,7 +268,7 @@ public class Reducers {
      * @param <R>           决策对象泛型
      * @return 决策出的扩展点实现
      */
-    private static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCodes(List<String> templateCodes, String scenario, R reduceTarget, Class<E> targetClass) {
+    public static <E extends ExtensionPoints<E, R>, R> ExtensionExecutor<E, R> reduceByCodes(List<String> templateCodes, String scenario, R reduceTarget, Class<E> targetClass) {
         return CodeExtensionExecutor.of(templateCodes, scenario, reduceTarget, targetClass);
     }
 
