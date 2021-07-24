@@ -9,7 +9,8 @@ public class DefaultHorizontalTemplate extends HorizontalTemplate {
 
     /**
      * 重写构造方法
-     * @param code code
+     *
+     * @param code     code
      * @param priority 优先级
      */
     public DefaultHorizontalTemplate(String code, Integer priority) {
@@ -18,7 +19,7 @@ public class DefaultHorizontalTemplate extends HorizontalTemplate {
 
     @Override
     public boolean checkSupport() {
-        return true;
+        return false;
     }
 
     @Override

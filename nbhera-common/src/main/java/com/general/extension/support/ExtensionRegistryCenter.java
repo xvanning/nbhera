@@ -266,7 +266,8 @@ public class ExtensionRegistryCenter {
      * @return 扩展点实现定义列表
      */
     protected static <E extends ExtensionPoints<E, R>, R> List<ExtensionDefinition<E, R>> getExtensionDefinitionList(String bizCode, List<String> templateCodes, String scenario, R reduceTarget, Class<E> targetClass) {
-        List<ExtensionDefinition<E, R>> result = templateCodes.stream().map(templateCode -> getExtensionDefinition(templateCode, scenario, targetClass, false)).filter(Objects::nonNull).filter(definition -> definition.support(reduceTarget, bizCode)).sorted().distinct().collect(Collectors.toList());
+        List<ExtensionDefinition<E, R>> extensionDefinitionList = templateCodes.stream().map(templateCode -> getExtensionDefinition(templateCode, scenario, targetClass, false)).filter(Objects::nonNull).collect(Collectors.toList());
+        List<ExtensionDefinition<E, R>> result = extensionDefinitionList.stream().filter(definition -> definition.support(reduceTarget, bizCode)).sorted().distinct().collect(Collectors.toList());
 
         // 如果没有匹配到实现，就获取默认实现
         if (CollectionUtils.isEmpty(result)) {

@@ -1,6 +1,7 @@
 package com.general.extension.biz.vertical;
 
 import com.general.extension.annotation.ExtensionSession;
+import com.general.extension.biz.horizontal.paytype.PayTypeNameExt;
 import com.general.extension.biz.horizontal.transport.TransportNameExt;
 import com.general.extension.biz.vertical.simple.PostProcessorExt;
 import com.general.extension.strategy.demo1.PackTypeExt;
@@ -25,6 +26,8 @@ public class VerticalBizDemo {
     PostProcessorExt postProcessorExt;
     @Resource
     TransportNameExt transportNameExt;
+    @Resource
+    PayTypeNameExt payTypeNameExt;
 
     /**
      * 策略模式例子，需要接口加 @Strategy
@@ -72,7 +75,8 @@ public class VerticalBizDemo {
      * 只用到了 transportType
      * {@link com.general.extension.template.TemplateDemo}
      *
-     * @param businessType 业务类型
+     * @param businessType  业务类型
+     * @param transportType 运力类型
      * @return 业务类型描述
      */
     @ExtensionSession
@@ -83,13 +87,14 @@ public class VerticalBizDemo {
 
     /**
      * 垂直业务例子
-     * 【垂直业务 + 订阅模板】 的例子，双层复杂实现 TODO
+     * 【垂直业务 + 订阅模板】 的例子，双层复杂实现
      *
      * @param businessType 业务类型
+     * @param payType      支付类型
      * @return 业务类型描述
      */
     @ExtensionSession
-    public String get(@BizParam("businessType") Integer businessType, Integer transportType) {
-        return transportNameExt.reduce(transportType).getTransportName();
+    public String getPayTypeWithBusinessType(@BizParam("businessType") Integer businessType, Integer payType) {
+        return payTypeNameExt.reduce(payType).getPayTypeNameWithBusiness();
     }
 }

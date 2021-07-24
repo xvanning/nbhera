@@ -10,4 +10,6 @@ import com.general.nbhera.extension.ExtensionPoints;
 public interface PayTypeNameExt extends ExtensionPoints<PayTypeNameExt, Integer> {
 
     String getPayTypeName();
+
+    String getPayTypeNameWithBusiness();
 }

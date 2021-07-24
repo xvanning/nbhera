@@ -2,6 +2,7 @@ package com.general;
 
 import com.general.enums.BusinessTypeEnums;
 import com.general.enums.PackTypeEnums;
+import com.general.enums.PayTypeEnums;
 import com.general.enums.TransTypeEnums;
 import com.general.extension.biz.vertical.VerticalBizDemo;
 import org.junit.jupiter.api.Test;
@@ -52,6 +53,20 @@ class NbheraDemoApplicationTests {
         System.out.println("社区业务，小件员运力：" + communityCourier);
         String communityCar = verticalBizDemo.getTransportTypeWithoutStrategy(BusinessTypeEnums.COMMUNITY.getCode(), TransTypeEnums.CAR.getCode());
         System.out.println("社区业务，无人车运力：" + communityCar);
+    }
+
+    @Test
+    void getPayTypeWithBusinessType() {
+        String schoolNoPay = verticalBizDemo.getPayTypeWithBusinessType(BusinessTypeEnums.SCHOOL.getCode(), PayTypeEnums.NO_PAY.getCode());
+        System.out.println("校园业务，无需支付：" + schoolNoPay);
+        String schoolNeedPay = verticalBizDemo.getPayTypeWithBusinessType(BusinessTypeEnums.SCHOOL.getCode(), PayTypeEnums.NEED_PAY.getCode());
+        System.out.println("校园业务，需要支付：" + schoolNeedPay);
+        System.out.println("================ 垂直业务例子3，水平模板和垂直模板一起使用，垂直模板进行订阅 ===============");
+        String communityNoPay = verticalBizDemo.getPayTypeWithBusinessType(BusinessTypeEnums.COMMUNITY.getCode(), PayTypeEnums.NO_PAY.getCode());
+        System.out.println("社区业务，无需支付：" + communityNoPay);
+        // 社区没有订阅需要支付的模板
+//        String communityNeedPay = verticalBizDemo.getPayTypeWithBusinessTypessType(BusinessTypeEnums.COMMUNITY.getCode(), PayTypeEnums.NEED_PAY.getCode());
+//        System.out.println("社区业务，需要支付：" + communityNeedPay);
     }
 
 }
