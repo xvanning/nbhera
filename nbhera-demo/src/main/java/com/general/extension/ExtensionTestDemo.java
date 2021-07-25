@@ -1,10 +1,13 @@
-package com.general.extension.biz.vertical;
+package com.general.extension;
 
 import com.general.extension.annotation.ExtensionSession;
+import com.general.extension.biz.RequestForTest;
 import com.general.extension.biz.horizontal.paytype.PayTypeNameExt;
 import com.general.extension.biz.horizontal.transport.TransportNameExt;
 import com.general.extension.biz.vertical.simple.PostProcessorExt;
 import com.general.extension.scenario.checkrules.CheckRulesExt;
+import com.general.extension.scenario.horizontal.RealTransportName;
+import com.general.extension.session.FirstSessionExt;
 import com.general.extension.strategy.demo1.PackTypeExt;
 import com.general.extension.strategy.demo2.PackTypeWithHorizontalExt;
 import com.general.nbhera.extension.aonnotation.BizParam;
@@ -20,7 +23,7 @@ import java.util.List;
  * desc:
  */
 @Component
-public class VerticalBizDemo {
+public class ExtensionTestDemo {
     @Resource
     PackTypeExt packTypeExt;
     @Resource
@@ -33,6 +36,12 @@ public class VerticalBizDemo {
     PayTypeNameExt payTypeNameExt;
     @Resource
     CheckRulesExt checkRulesExt;
+    @Resource
+    RealTransportName realTransportName;
+    @Resource
+    FirstSessionExt firstSessionExt;
+    @Resource
+    DoubleSessionDemo doubleSessionDemo;
 
     /**
      * 策略模式例子，需要接口加 @Strategy
@@ -104,6 +113,7 @@ public class VerticalBizDemo {
     }
 
     /**
+     * 策略模式不支持 场景，没有入参可以传递进去
      * 垂直业务的场景例子
      *
      * @param businessType 业务类型
@@ -116,15 +126,44 @@ public class VerticalBizDemo {
     }
 
     /**
+     * 策略模式不支持 场景，没有入参可以传递进去
      * 垂直业务的场景例子
      *
-     * @param businessType 业务类型
-     * @param transType    运力类型
-     * @param scenario     场景值
+     * @param requestForTest req
      * @return 业务类型描述
      */
     @ExtensionSession
-    public String getScenarioHorizontal(@BizParam("businessType") Integer businessType, Integer transType, @Scenario Integer scenario) {
-        return "";
+    public String getScenarioHorizontal(RequestForTest requestForTest) {
+        return realTransportName.reduce(requestForTest.getTransType()).getRealTransportName();
+    }
+
+    /**
+     * 双层 @ExtensionSession
+     * 垂直业务的场景例子
+     *
+     * @param businessType businessType
+     * @return 业务类型描述
+     */
+    @ExtensionSession
+    public String getDoubleSessionOnlyBiz(@BizParam("businessType") Integer businessType, Integer businessType2) {
+        String firstSession = firstSessionExt.getFirstSession();
+        String secondSession = doubleSessionDemo.getDoubleSession(businessType2);
+        return firstSession + " ======== " + secondSession;
+    }
+
+    /**
+     * 双层 @ExtensionSession
+     * 垂直业务的场景例子
+     *
+     * @param businessType businessType
+     * @return 业务类型描述
+     */
+    @ExtensionSession
+    public String getDoubleSessionWithHorizontalExt(@BizParam("businessType") Integer businessType, Integer payType, Integer businessType2, Integer payType2) {
+        String firstSession = payTypeNameExt.reduce(payType).getPayTypeNameWithBusiness();
+        System.out.println(firstSession);
+        String secondSession = doubleSessionDemo.getDoubleSessionWithHorizontalExt(businessType2, payType2);
+        System.out.println(secondSession);
+        return firstSession + " ======== " + secondSession;
     }
 }

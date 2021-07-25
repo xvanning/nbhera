@@ -11,4 +11,14 @@ public class ScenarioConstant {
      * 预测
      */
     public static final String PREDICATED = "PREDICATED";
+
+    /**
+     * 人力运力 - 老板
+     */
+    public static final String BOSS = "BOSS";
+
+    /**
+     * 无人车运力 - 卡车
+     */
+    public static final String TRUCK = "TRUCK";
 }
